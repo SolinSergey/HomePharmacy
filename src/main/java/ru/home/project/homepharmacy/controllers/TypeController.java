@@ -3,23 +3,21 @@ package ru.home.project.homepharmacy.controllers;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import ru.home.project.homepharmacy.converters.TypeConverter;
 import ru.home.project.homepharmacy.dtos.TypeDto;
+import ru.home.project.homepharmacy.entities.Medicine;
 import ru.home.project.homepharmacy.entities.Type;
 import ru.home.project.homepharmacy.services.TypeService;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @Controller
 @RequestMapping("/type")
 public class TypeController {
     private final TypeService typeService;
+    private final TypeConverter typeConverter;
     @GetMapping("/listAll")
     public String listAllTypes(Model model) {
         List<Type> typeList = typeService.findAll();
@@ -39,4 +37,21 @@ public class TypeController {
         typeService.addNewType(newTypeDto);
         return "redirect:/type/listAll";
     }
+
+    @GetMapping("/editType")
+    public String editById(@RequestParam Long id, Model model){
+        model.addAttribute("editType",typeConverter.entityToDto(typeService.findById(id)));
+        return "/type/formEditType";
+    }
+    @PostMapping("/editType")
+    public String editById(@ModelAttribute("editType") TypeDto editTypeDto, Model model) {
+        typeService.editType(editTypeDto);
+        return "redirect:/type/listAll";
+    }
+    @GetMapping("/removeType")
+    public String removeById(@RequestParam Long id, Model model){
+        typeService.removeType(id);
+        return "redirect:/type/listAll";
+    }
+
 }

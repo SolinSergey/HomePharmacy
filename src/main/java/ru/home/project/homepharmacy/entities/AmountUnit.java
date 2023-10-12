@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class AmountUnit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "title")
     private String title;

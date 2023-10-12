@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @Builder
 public class AmountUnitDto {
-    private long id;
+    private Long id;
     private String title;
 }

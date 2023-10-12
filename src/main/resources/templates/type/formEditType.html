@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Редактирование типа лекарственных средств</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Редактирование типа лекарственных средств</h1>
+    <br>
+    <table>
+        <tr>
+            <td>
+                <form th:action="@{/type/editType}" th:object="${editType}" method="post">
+                    <input type="text" hidden="true" name="classId"
+                           th:value="${editType.getId()}" th:field="${editType.id}">
+                    <input class="form-control form-control-lg" type="text"
+                           aria-label=".form-control-lg example" th:value="${editType.getTitle()}" th:field="${editType.title}">
+<!--                    <div style="color: red" th:errors="*{description}" class="error"/>-->
+                    <br>
+                    <input name="submit" type="submit" class="btn btn-primary" value="Сохранить"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+</div>
+</body>
+</html>

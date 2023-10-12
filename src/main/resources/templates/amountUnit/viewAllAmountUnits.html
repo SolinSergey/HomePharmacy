@@ -19,9 +19,13 @@
         </tr>
         </thead>
         <tbody class="table-group-divider">
-        <tr th:each="tL:${amountUnitList}">
-            <td th:text="${tL.getId()}" ></td>
-            <td th:text="${tL.getTitle()}"></td>
+        <tr th:each="aUL:${amountUnitList}">
+            <td th:text="${aUL.getId()}" ></td>
+            <td th:text="${aUL.getTitle()}"></td>
+            <td><a class="btn btn-danger" th:href="@{'/amountUnit/editAmountUnit?id=' + ${aUL.getId()}}"
+                   role="button">Изменить</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/amountUnit/removeAmountUnit?id=' + ${aUL.getId()}}"
+                   role="button">Удалить</a></td>
 <!--            <td th:text="${tL.getDisciplinTitle()}"></td>-->
 <!--            <td th:text="${tL.getClassTitle()}"></td>-->
         </tr>

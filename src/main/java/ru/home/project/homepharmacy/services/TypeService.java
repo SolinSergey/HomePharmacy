@@ -13,6 +13,9 @@ import java.util.List;
 public class TypeService {
     private final TypeRepository typeRepository;
 
+    public Type findById(Long id){
+        return typeRepository.findById(id).get();
+    }
     public List<Type> findAll(){
         return typeRepository.findAll();
     }
@@ -25,5 +28,14 @@ public class TypeService {
             newType.setTitle(newTypeDto.getTitle());
             typeRepository.save(newType);
         }
+    }
+
+    public void editType(TypeDto editTypeDto){
+        Type type = typeRepository.findById(editTypeDto.getId()).get();
+        type.setTitle(editTypeDto.getTitle());
+        typeRepository.save(type);
+    }
+    public void removeType (Long id){
+        typeRepository.deleteById(id);
     }
 }

@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class MedicineDto {
     private String title;
-    private long typeId;
-    private int amount;
-    private long amountId;
+    private Long typeId;
+    private Integer amount;
+    private Long amountId;
 }

@@ -30,7 +30,7 @@ public class MedicineService {
         Medicine medicine=medicineRepository.findByAmountUnitAndTypeAndTitle(amountUnit,type, newMedicineDto.getTitle());
         if (medicine==null){
             medicine=new Medicine();
-            medicine.setId(0);
+            medicine.setId(0l);
             medicine.setType(type);
             medicine.setAmountUnit(amountUnit);
             medicine.setTitle(newMedicineDto.getTitle());
