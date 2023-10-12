@@ -5,9 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.home.project.homepharmacy.entities.AmountUnit;
 import ru.home.project.homepharmacy.entities.Medicine;
-import ru.home.project.homepharmacy.services.AmountUnitService;
 import ru.home.project.homepharmacy.services.MedicineService;
 
 import java.util.List;
@@ -21,6 +19,6 @@ public class MedicineController {
     public String listAllMedicine(Model model) {
         List<Medicine> medicineList = medicineService.findAll();
         model.addAttribute("medicineList", medicineList);
-        return "/medicine/viewAllMedicine";
+        return "/medicine/viewAllMedicines";
     }
 }

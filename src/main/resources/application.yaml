@@ -4,10 +4,10 @@ server:
     context-path: /
 spring:
   datasource:
-    url:  jdbc:postgresql://bpgcwkz8fxdmpzg8b6u2-postgresql.services.clever-cloud.com:5432/bpgcwkz8fxdmpzg8b6u2
+    url:  jdbc:postgresql://localhost:5432/home_pharmacy
     driver-class-name: org.postgresql.Driver
-    username: udaep2ehgjysxzs8nxbj
-    password: 0UcRy1er2CB6W5OFK4ym6mouSxPihH
+    username: postgres
+    password: 123
   jpa:
     show-sql: true
     properties:

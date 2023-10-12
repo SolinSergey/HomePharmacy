@@ -7,5 +7,5 @@ import ru.home.project.homepharmacy.entities.Type;
 
 @Repository
 public interface AmountUnitRepository extends JpaRepository<AmountUnit, Long> {
-
+    AmountUnit findAllByTitle(String title);
 }
