@@ -29,7 +29,7 @@ public class TypeController {
 
     @GetMapping("/addNewType")
     public String addNewType(Model model) {
-        TypeDto newTypeDto=new TypeDto();
+        TypeDto newTypeDto=TypeDto.builder().build();
         model.addAttribute("newType", newTypeDto);
         return "/type/formAddType";
     }

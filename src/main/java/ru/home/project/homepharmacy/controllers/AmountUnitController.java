@@ -30,7 +30,7 @@ public class AmountUnitController {
 
     @GetMapping("/addNewAmountUnit")
     public String addNewAmountUnit(Model model) {
-        AmountUnitDto newAmountUnitDto=new AmountUnitDto();
+        AmountUnitDto newAmountUnitDto=AmountUnitDto.builder().build();
         model.addAttribute("newAmountUnit", newAmountUnitDto);
         return "/amountUnit/formAddAmountUnit";
     }

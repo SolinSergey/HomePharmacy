@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление лекарственного средства</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <h1>Добавление лекарственного средства</h1>
+    <br>
+    <table>
+        <tr>
+            <td>
+                <form th:action="@{/medicine/addNewMedicine}" th:object="${newMedicine}" method="post">
+                    <input class="form-control form-control-lg" type="text" placeholder="Введите название"
+                           aria-label=".form-control-lg example" th:field="${newMedicine.title}">
+                    <!--                    <div style="color: red" th:errors="*{description}" class="error"/>-->
+                    <br>
+                    <select class="form-select" th:field="${newMedicine.typeId}">
+                        <option th:each="t:${listTypes}" th:value="${t.getId()}"
+                                th:text="${t.getTitle()}">
+                        </option>
+                    </select>
+                    <br>
+                    <select class="form-select" th:field="${newMedicine.amountId}">
+                        <option th:each="a:${listAmountUnits}" th:value="${a.getId()}"
+                                th:text="${a.getTitle()}">
+                        </option>
+                    </select>
+                    <br>
+                    <input class="form-control form-control-lg" type="text" placeholder="Введите количество"
+                           aria-label=".form-control-lg example" th:field="${newMedicine.amount}">
+                    <!--                    <div style="color: red" th:errors="*{description}" class="error"/>-->
+                    <br>
+<!--                    <label for="startDate">Дата</label>-->
+<!--                    <input id="startDate" class="form-control" min="2023-01-01" max="2025-12-31" type="date"-->
+<!--                           th:field="${gradeData.dateGrade}"/>-->
+<!--                    <div style="color: red" th:errors="*{dateGrade}" class="error"/>-->
+<!--                    <br>-->
+<!--                    <input class="form-control form-control-lg" type="text" placeholder="введите комментарий"-->
+<!--                           aria-label=".form-control-lg example" th:field="${gradeData.description}">-->
+<!--                    <div style="color: red" th:errors="*{description}" class="error"/>-->
+<!--                    <br>-->
+<!--                    <label>Оценка:</label>-->
+<!--                    <select class="form-select" aria-label="Default select example" th:field="${gradeData.grade}">-->
+<!--                        <option selected value="1">1</option>-->
+<!--                        <option value="2">2</option>-->
+<!--                        <option value="3">3</option>-->
+<!--                        <option value="4">4</option>-->
+<!--                        <option value="5">5</option>-->
+<!--                    </select>-->
+<!--                    <br>-->
+                    <input name="submit" type="submit" class="btn btn-primary" value="Добавить"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+    <br><br>
+</div>
+</body>
+</html>
