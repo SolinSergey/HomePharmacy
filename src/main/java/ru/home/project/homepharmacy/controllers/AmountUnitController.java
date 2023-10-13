@@ -16,39 +16,39 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/amountUnit")
+@RequestMapping("amountUnit")
 public class AmountUnitController {
     private final AmountUnitService amountUnitService;
     private final AmountUnitConverter amountUnitConverter;
-    @GetMapping("/listAll")
+    @GetMapping("listAll")
     public String listAllAmountUnit(Model model) {
         List<AmountUnit> amountUnitList = amountUnitService.findAll();
         model.addAttribute("amountUnitList", amountUnitList);
-        return "/amountUnit/viewAllAmountUnits";
+        return "amountUnit/viewAllAmountUnits";
     }
 
-    @GetMapping("/addNewAmountUnit")
+    @GetMapping("addNewAmountUnit")
     public String addNewAmountUnit(Model model) {
         AmountUnitDto newAmountUnitDto=AmountUnitDto.builder().build();
         model.addAttribute("newAmountUnit", newAmountUnitDto);
-        return "/amountUnit/formAddAmountUnit";
+        return "amountUnit/formAddAmountUnit";
     }
-    @PostMapping("/addNewAmountUnit")
+    @PostMapping("addNewAmountUnit")
     public String addNewType(@ModelAttribute("newAmountUnit") AmountUnitDto newAmountUnitDto, Model model) {
         amountUnitService.addNewAmountUnit(newAmountUnitDto);
         return "redirect:/amountUnit/listAll";
     }
-    @GetMapping("/editAmountUnit")
+    @GetMapping("editAmountUnit")
     public String editById(@RequestParam Long id, Model model){
         model.addAttribute("editAmountUnit",amountUnitConverter.entityToDto(amountUnitService.findById(id)));
-        return "/amountUnit/formEditAmountUnit";
+        return "amountUnit/formEditAmountUnit";
     }
-    @PostMapping("/editAmountUnit")
+    @PostMapping("editAmountUnit")
     public String editById(@ModelAttribute("editAmountUnit") AmountUnitDto editAmountUnitDto, Model model) {
         amountUnitService.editAmountUnit(editAmountUnitDto);
         return "redirect:/amountUnit/listAll";
     }
-    @GetMapping("/removeAmountUnit")
+    @GetMapping("removeAmountUnit")
     public String removeById(@RequestParam Long id, Model model){
         amountUnitService.removeAmountUnit(id);
         return "redirect:/amountUnit/listAll";

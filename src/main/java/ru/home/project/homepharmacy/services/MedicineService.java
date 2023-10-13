@@ -20,6 +20,9 @@ public class MedicineService {
     private final AmountUnitRepository amountUnitRepository;
     private final TypeRepository typeRepository;
 
+    public Medicine findById(Long id) {
+        return medicineRepository.findById(id).get();
+    }
     public List<Medicine> findAll(){
         return medicineRepository.findAll();
     }
@@ -37,5 +40,20 @@ public class MedicineService {
             medicine.setAmount(newMedicineDto.getAmount());
             medicineRepository.save(medicine);
         }
+    }
+
+    public void editMedicine(MedicineDto medicineDto){
+        Medicine medicine = medicineRepository.findById(medicineDto.getId()).get();
+        Type type = typeRepository.findById(medicineDto.getTypeId()).get();
+        AmountUnit amountUnit = amountUnitRepository.findById(medicineDto.getAmountId()).get();
+        medicine.setTitle(medicineDto.getTitle());
+        medicine.setType(type);
+        medicine.setAmountUnit(amountUnit);
+        medicine.setAmount(medicineDto.getAmount());
+        medicineRepository.save(medicine);
+    }
+
+    public void removeMedicine (Long id){
+        medicineRepository.deleteById(id);
     }
 }

@@ -2,6 +2,11 @@ server:
   port: 9000
   servlet:
     context-path: /
+flyway:
+  user: postgres
+  password: 123
+  schemas: home_pharmacy_db
+  url: jdbc:postgresql://localhost:5432/home_pharmacy
 spring:
   datasource:
     url:  jdbc:postgresql://localhost:5432/home_pharmacy

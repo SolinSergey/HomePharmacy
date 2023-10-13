@@ -1,0 +1,6 @@
+FROM openjdk:17
+ARG jarFile=/target/HomePharmacy-0.0.1.jar
+WORKDIR /opt/app
+COPY ${jarFile} pharmacy.jar
+EXPOSE 9000
+ENTRYPOINT ["java","-jar","pharmacy.jar"]

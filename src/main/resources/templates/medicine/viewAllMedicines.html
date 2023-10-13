@@ -24,6 +24,10 @@
             <td th:text="${mL.getTitle()}"></td>
             <td th:text="${mL.getType().getTitle()}"></td>
             <td th:text="${mL.getAmount()}+'&nbsp'+${mL.getAmountUnit().getTitle()}"></td>
+            <td><a class="btn btn-danger" th:href="@{'/medicine/editMedicine?id=' + ${mL.getId()}}"
+                   role="button">Изменить</a></td>
+            <td><a class="btn btn-danger" th:href="@{'/medicine/removeMedicine?id=' + ${mL.getId()}}"
+                   role="button">Удалить</a></td>
         </tr>
         </tbody>
     </table>

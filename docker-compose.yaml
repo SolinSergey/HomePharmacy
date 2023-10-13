@@ -1,0 +1,37 @@
+version: '3.8'
+services:
+  home_pharmacy_db:
+    image: postgres:15
+    container_name: home_pharmacy_db
+    volumes:
+      - ~/docker/home_pharmacy_db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "home_pharmacy_db"
+      POSTGRES_USER: "pharmacy"
+      POSTGRES_PASSWORD: "pharmacy"
+    ports:
+      - "5433:5432"
+    networks:
+      - pharmacy-net
+    restart: always
+
+  home_pharmacy:
+    depends_on:
+      - home_pharmacy_db
+    container_name: home_pharmacy
+    build:
+      context: .
+      dockerfile: Dockerfile-pharmacy
+    ports:
+      - "9000:9000"
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://home_pharmacy_db:5432/home_pharmacy_db"
+      SPRING_DATASOURCE_USERNAME: "pharmacy"
+      SPRING_DATASOURCE_PASSWORD: "pharmacy"
+    networks:
+      - pharmacy-net
+    restart: always
+
+networks:
+  pharmacy-net:
+    driver: bridge

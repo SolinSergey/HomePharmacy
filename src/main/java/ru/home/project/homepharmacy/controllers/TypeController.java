@@ -14,41 +14,41 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping("/type")
+@RequestMapping("type")
 public class TypeController {
     private final TypeService typeService;
     private final TypeConverter typeConverter;
-    @GetMapping("/listAll")
+    @GetMapping("listAll")
     public String listAllTypes(Model model) {
         List<Type> typeList = typeService.findAll();
         model.addAttribute("typeList", typeList);
-        return "/type/viewAllTypes";
+        return "type/viewAllTypes";
     }
 
-    @GetMapping("/addNewType")
+    @GetMapping("addNewType")
     public String addNewType(Model model) {
         TypeDto newTypeDto=TypeDto.builder().build();
         model.addAttribute("newType", newTypeDto);
-        return "/type/formAddType";
+        return "type/formAddType";
     }
 
-    @PostMapping("/addNewType")
+    @PostMapping("addNewType")
     public String addNewType(@ModelAttribute("newType") TypeDto newTypeDto, Model model) {
         typeService.addNewType(newTypeDto);
         return "redirect:/type/listAll";
     }
 
-    @GetMapping("/editType")
+    @GetMapping("editType")
     public String editById(@RequestParam Long id, Model model){
         model.addAttribute("editType",typeConverter.entityToDto(typeService.findById(id)));
-        return "/type/formEditType";
+        return "type/formEditType";
     }
-    @PostMapping("/editType")
+    @PostMapping("editType")
     public String editById(@ModelAttribute("editType") TypeDto editTypeDto, Model model) {
         typeService.editType(editTypeDto);
         return "redirect:/type/listAll";
     }
-    @GetMapping("/removeType")
+    @GetMapping("removeType")
     public String removeById(@RequestParam Long id, Model model){
         typeService.removeType(id);
         return "redirect:/type/listAll";
