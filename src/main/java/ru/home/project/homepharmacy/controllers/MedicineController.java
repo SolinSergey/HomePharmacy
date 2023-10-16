@@ -1,6 +1,7 @@
 package ru.home.project.homepharmacy.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,7 @@ public class MedicineController {
     private final TypeConverter typeConverter;
     private final AmountUnitConverter amountUnitConverter;
     private final MedicineConverter medicineConverter;
+    Sort sort = Sort.by("title").ascending();
 
     @GetMapping("listAll")
     public String listAllMedicine(Model model) {

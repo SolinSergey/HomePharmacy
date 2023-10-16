@@ -1,6 +1,7 @@
 package ru.home.project.homepharmacy.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ru.home.project.homepharmacy.dtos.TypeDto;
 import ru.home.project.homepharmacy.entities.Type;
@@ -12,12 +13,13 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TypeService {
     private final TypeRepository typeRepository;
+    Sort sort = Sort.by("title").ascending();
 
     public Type findById(Long id){
         return typeRepository.findById(id).get();
     }
     public List<Type> findAll(){
-        return typeRepository.findAll();
+        return typeRepository.findAll(sort);
     }
 
     public void addNewType(TypeDto newTypeDto){

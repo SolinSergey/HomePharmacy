@@ -1,6 +1,7 @@
 package ru.home.project.homepharmacy.services;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ru.home.project.homepharmacy.dtos.MedicineDto;
 import ru.home.project.homepharmacy.dtos.TypeDto;
@@ -19,12 +20,13 @@ public class MedicineService {
     private final MedicineRepository medicineRepository;
     private final AmountUnitRepository amountUnitRepository;
     private final TypeRepository typeRepository;
+    Sort sort = Sort.by("title").ascending();
 
     public Medicine findById(Long id) {
         return medicineRepository.findById(id).get();
     }
     public List<Medicine> findAll(){
-        return medicineRepository.findAll();
+        return medicineRepository.findAll(sort);
     }
 
     public void addNewMedicine(MedicineDto newMedicineDto){
