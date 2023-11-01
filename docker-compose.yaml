@@ -4,7 +4,7 @@ services:
     image: postgres:15
     container_name: home_pharmacy_db
     volumes:
-      - ~/docker/home_pharmacy_db:/var/lib/postgresql/data
+      - ~/docker/home_pharmacy_db:/var/lib/postgresql/data && sudo chmod 0700 /var/lib/postgresql/data
     environment:
       POSTGRES_DB: "home_pharmacy_db"
       POSTGRES_USER: "pharmacy"

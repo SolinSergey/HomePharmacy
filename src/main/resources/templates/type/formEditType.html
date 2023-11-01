@@ -15,8 +15,9 @@
                     <input type="text" hidden="true" name="classId"
                            th:value="${editType.getId()}" th:field="${editType.id}">
                     <input class="form-control form-control-lg" type="text"
-                           aria-label=".form-control-lg example" th:value="${editType.getTitle()}" th:field="${editType.title}">
-<!--                    <div style="color: red" th:errors="*{description}" class="error"/>-->
+                           aria-label=".form-control-lg example" th:value="${editType.getTitle()}"
+                           th:field="${editType.title}">
+                    <!--                    <div style="color: red" th:errors="*{description}" class="error"/>-->
                     <br>
                     <input name="submit" type="submit" class="btn btn-primary" value="Сохранить"/>
                 </form>

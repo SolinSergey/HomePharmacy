@@ -2,21 +2,21 @@
 <html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Изменение единицы измерения количества</title>
+    <title>Редактирование группы лекарственных средств</title>
 </head>
 <body>
 <div layout:fragment="content">
-    <h1>Изменение единицы измерения количества</h1>
+    <h1>Редактирование группы лекарственных средств</h1>
     <br>
     <table>
         <tr>
             <td>
-                <form th:action="@{/amountUnit/editAmountUnit}" th:object="${editAmountUnit}" method="post">
+                <form th:action="@{/group/editGroup}" th:object="${editGroup}" method="post">
                     <input type="text" hidden="true" name="classId"
-                           th:value="${editAmountUnit.getId()}" th:field="${editAmountUnit.id}">
+                           th:value="${editGroup.getId()}" th:field="${editGroup.id}">
                     <input class="form-control form-control-lg" type="text"
-                           aria-label=".form-control-lg example" th:value="${editAmountUnit.getTitle()}"
-                           th:field="${editAmountUnit.title}">
+                           aria-label=".form-control-lg example" th:value="${editGroup.getTitle()}"
+                           th:field="${editGroup.title}">
                     <!--                    <div style="color: red" th:errors="*{description}" class="error"/>-->
                     <br>
                     <input name="submit" type="submit" class="btn btn-primary" value="Сохранить"/>

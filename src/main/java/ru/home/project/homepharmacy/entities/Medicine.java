@@ -29,4 +29,8 @@ public class Medicine {
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "amount_unit_id")
     private AmountUnit amountUnit;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "group_id")
+    private Group group;
 }

@@ -2,11 +2,11 @@
 <html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Список единиц измерения количества</title>
+    <title>Список групп лекарственных средств</title>
 </head>
 <body>
 <div layout:fragment="content">
-    <h1>Список единиц измерения количества</h1>
+    <h1>Список групп лекарственных средств</h1>
     <br>
     <table class="table">
         <thead>
@@ -19,12 +19,12 @@
         </tr>
         </thead>
         <tbody class="table-group-divider">
-        <tr th:each="aUL:${amountUnitList}">
-            <td th:text="${aUL.getId()}"></td>
-            <td th:text="${aUL.getTitle()}"></td>
-            <td><a class="btn btn-danger" th:href="@{'/amountUnit/editAmountUnit?id=' + ${aUL.getId()}}"
+        <tr th:each="gL:${groupList}">
+            <td th:text="${gL.getId()}"></td>
+            <td th:text="${gL.getTitle()}"></td>
+            <td><a class="btn btn-danger" th:href="@{'/group/editGroup?id=' + ${gL.getId()}}"
                    role="button">Изменить</a></td>
-            <td><a class="btn btn-danger" th:href="@{'/amountUnit/removeAmountUnit?id=' + ${aUL.getId()}}"
+            <td><a class="btn btn-danger" th:href="@{'/group/removeGroup?id=' + ${gL.getId()}}"
                    role="button">Удалить</a></td>
             <!--            <td th:text="${tL.getDisciplinTitle()}"></td>-->
             <!--            <td th:text="${tL.getClassTitle()}"></td>-->

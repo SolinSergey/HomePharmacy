@@ -2,19 +2,18 @@
 <html lang="ru" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout}">
 <head>
     <meta charset="UTF-8">
-    <title>Добавление единицы измерения количества</title>
+    <title>Добавление группы лекарственных средств</title>
 </head>
 <body>
 <div layout:fragment="content">
-    <h1>Добавление единицы измерения количества</h1>
+    <h1>Добавление группы лекарственных средств</h1>
     <br>
     <table>
         <tr>
             <td>
-                <form th:action="@{/amountUnit/addNewAmountUnit}" th:object="${newAmountUnit}" method="post">
-                    <input class="form-control form-control-lg" type="text"
-                           placeholder="Введите название единицы измерения"
-                           aria-label=".form-control-lg example" th:field="${newAmountUnit.title}">
+                <form th:action="@{/group/addNewGroup}" th:object="${newGroup}" method="post">
+                    <input class="form-control form-control-lg" type="text" placeholder="Введите название группы"
+                           aria-label=".form-control-lg example" th:field="${newGroup.title}">
                     <!--                    <div style="color: red" th:errors="*{description}" class="error"/>-->
                     <br>
                     <input name="submit" type="submit" class="btn btn-primary" value="Добавить"/>

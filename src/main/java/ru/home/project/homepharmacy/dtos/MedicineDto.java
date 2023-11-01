@@ -11,4 +11,5 @@ public class MedicineDto {
     private Long typeId;
     private Integer amount;
     private Long amountId;
+    private Long groupId;
 }

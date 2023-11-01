@@ -9,8 +9,8 @@ import ru.home.project.homepharmacy.entities.Type;
 
 @Component
 public class AmountUnitConverter {
-    public AmountUnitDto entityToDto(AmountUnit amountUnit){
-        AmountUnitDto amountUnitDto=AmountUnitDto.builder()
+    public AmountUnitDto entityToDto(AmountUnit amountUnit) {
+        AmountUnitDto amountUnitDto = AmountUnitDto.builder()
                 .id(amountUnit.getId())
                 .title(amountUnit.getTitle())
                 .build();

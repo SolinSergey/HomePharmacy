@@ -15,8 +15,15 @@
                     <input type="text" hidden="true" name="classId"
                            th:value="${editMedicine.getId()}" th:field="${editMedicine.id}">
                     <input class="form-control form-control-lg" type="text"
-                           aria-label=".form-control-lg example" th:value="${editMedicine.getTitle()}" th:field="${editMedicine.title}">
-<!--                    <div style="color: red" th:errors="*{description}" class="error"/>-->
+                           aria-label=".form-control-lg example" th:value="${editMedicine.getTitle()}"
+                           th:field="${editMedicine.title}">
+                    <!--                    <div style="color: red" th:errors="*{description}" class="error"/>-->
+                    <br>
+                    <select class="form-select" th:field="${editMedicine.groupId}">
+                        <option th:each="g:${listGroups}" th:value="${g.getId()}"
+                                th:text="${g.getTitle()}">
+                        </option>
+                    </select>
                     <br>
                     <select class="form-select" th:field="${editMedicine.typeId}">
                         <option th:each="t:${listTypes}" th:value="${t.getId()}"
@@ -31,7 +38,8 @@
                     </select>
                     <br>
                     <input class="form-control form-control-lg" type="text"
-                           aria-label=".form-control-lg example" th:value="${editMedicine.getAmount()}" th:field="${editMedicine.amount}">
+                           aria-label=".form-control-lg example" th:value="${editMedicine.getAmount()}"
+                           th:field="${editMedicine.amount}">
                     <!--                    <div style="color: red" th:errors="*{description}" class="error"/>-->
                     <br>
                     <input name="submit" type="submit" class="btn btn-primary" value="Сохранить"/>

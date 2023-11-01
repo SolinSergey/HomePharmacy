@@ -17,6 +17,7 @@ import java.util.List;
 public class AmountUnitService {
     private final AmountUnitRepository amountUnitRepository;
     Sort sort = Sort.by("title").ascending();
+
     public AmountUnit findById(Long id) {
         return amountUnitRepository.findById(id).get();
     }
@@ -41,7 +42,7 @@ public class AmountUnitService {
         amountUnitRepository.save(amountUnit);
     }
 
-    public void removeAmountUnit (Long id){
+    public void removeAmountUnit(Long id) {
         amountUnitRepository.deleteById(id);
     }
 }

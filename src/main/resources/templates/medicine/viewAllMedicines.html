@@ -8,20 +8,46 @@
 <div layout:fragment="content">
     <h1>Список лекарственных средств</h1>
     <br>
+    <form th:action="@{/medicine/listAll}" th:object="${filterData}" method="post">
+        <table>
+            <tr>
+                <td>
+                    <select class="form-select" th:field="${filterData.groupId}">
+                        <option value="0" class="h5">Все группы лекарств</option>
+                        <option th:each="group:${listGroups}" th:value="${group.getId()}"
+                                th:text="${group.getTitle()}">
+                        </option>
+                    </select>
+                    <br>
+                    <select class="form-select" th:field="${filterData.typeId}">
+                        <option value="0" class="h5">Все типы лекарств</option>
+                        <option th:each="type:${listTypes}" th:value="${type.getId()}"
+                                th:text="${type.getTitle()}">
+                        </option>
+                    </select>
+                    <br>
+                    <input name="submit" type="submit" class="btn btn-primary" value="Показать"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br>
     <table class="table">
         <thead>
         <tr>
             <th scope="col">id</th>
             <th scope="col">Название</th>
+            <th scope="col">Группа</th>
             <th scope="col">Тип</th>
             <th scope="col">Количество</th>
-<!--            <th scope="col">Классное руководство</th>-->
+            <!--            <th scope="col">Классное руководство</th>-->
         </tr>
         </thead>
         <tbody class="table-group-divider">
         <tr th:each="mL:${medicineList}">
             <td th:text="${mL.getId()}"></td>
             <td th:text="${mL.getTitle()}"></td>
+            <td th:text="${mL.getGroup().getTitle()}"></td>
             <td th:text="${mL.getType().getTitle()}"></td>
             <td th:text="${mL.getAmount()}+'&nbsp'+${mL.getAmountUnit().getTitle()}"></td>
             <td><a class="btn btn-danger" th:href="@{'/medicine/editMedicine?id=' + ${mL.getId()}}"

@@ -12,11 +12,26 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                            aria-expanded="false">
+                            Группы лекарств
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/group/listAll">Список групп лекарственных средств</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/group/addNewGroup">Добавление группы лекарственных
+                                средств</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
                             Типы лекарств
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/type/listAll">Список типов лекарственных средств</a></li>
-                            <li><a class="dropdown-item" href="/type/addNewType">Добавление типа лекарственных средств</a>
+                            <li><a class="dropdown-item" href="/type/listAll">Список типов лекарственных средств</a>
+                            </li>
+                            <li><a class="dropdown-item" href="/type/addNewType">Добавление типа лекарственных
+                                средств</a>
                             </li>
                         </ul>
                     </li>
@@ -26,8 +41,10 @@
                             Единицы количества
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/amountUnit/listAll">Список единиц измерения количества</a></li>
-                            <li><a class="dropdown-item" href="/amountUnit/addNewAmountUnit">Добавить новую единицу измерения количества</a></li>
+                            <li><a class="dropdown-item" href="/amountUnit/listAll">Список единиц измерения
+                                количества</a></li>
+                            <li><a class="dropdown-item" href="/amountUnit/addNewAmountUnit">Добавить новую единицу
+                                измерения количества</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -36,20 +53,22 @@
                             Лекарственные средства
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/medicine/listAll">Список лекарственных средств</a></li>
-                            <li><a class="dropdown-item" href="/medicine/addNewMedicine">Добавление лекарственных средств</a></li>
+                            <li><a class="dropdown-item" href="/medicine/listAll?groupId=0&typeId=0">Список
+                                лекарственных средств</a></li>
+                            <li><a class="dropdown-item" href="/medicine/addNewMedicine">Добавление лекарственных
+                                средств</a></li>
                         </ul>
                     </li>
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="/login">-->
-<!--                            <button type="button" class="btn btn-primary btn-sm">Войти</button>-->
-<!--                        </a>-->
-<!--                    </li>-->
-<!--                    <li class="nav-item">-->
-<!--                        <a class="nav-link" href="/logout">-->
-<!--                            <button type="button" class="btn btn-primary btn-sm">Выйти</button>-->
-<!--                        </a>-->
-<!--                    </li>-->
+                    <!--                    <li class="nav-item">-->
+                    <!--                        <a class="nav-link" href="/login">-->
+                    <!--                            <button type="button" class="btn btn-primary btn-sm">Войти</button>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
+                    <!--                    <li class="nav-item">-->
+                    <!--                        <a class="nav-link" href="/logout">-->
+                    <!--                            <button type="button" class="btn btn-primary btn-sm">Выйти</button>-->
+                    <!--                        </a>-->
+                    <!--                    </li>-->
                 </ul>
             </div>
         </div>

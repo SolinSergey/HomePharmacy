@@ -20,6 +20,7 @@ import java.util.List;
 public class AmountUnitController {
     private final AmountUnitService amountUnitService;
     private final AmountUnitConverter amountUnitConverter;
+
     @GetMapping("listAll")
     public String listAllAmountUnit(Model model) {
         List<AmountUnit> amountUnitList = amountUnitService.findAll();
@@ -29,27 +30,31 @@ public class AmountUnitController {
 
     @GetMapping("addNewAmountUnit")
     public String addNewAmountUnit(Model model) {
-        AmountUnitDto newAmountUnitDto=AmountUnitDto.builder().build();
+        AmountUnitDto newAmountUnitDto = AmountUnitDto.builder().build();
         model.addAttribute("newAmountUnit", newAmountUnitDto);
         return "amountUnit/formAddAmountUnit";
     }
+
     @PostMapping("addNewAmountUnit")
     public String addNewType(@ModelAttribute("newAmountUnit") AmountUnitDto newAmountUnitDto, Model model) {
         amountUnitService.addNewAmountUnit(newAmountUnitDto);
         return "redirect:/amountUnit/listAll";
     }
+
     @GetMapping("editAmountUnit")
-    public String editById(@RequestParam Long id, Model model){
-        model.addAttribute("editAmountUnit",amountUnitConverter.entityToDto(amountUnitService.findById(id)));
+    public String editById(@RequestParam Long id, Model model) {
+        model.addAttribute("editAmountUnit", amountUnitConverter.entityToDto(amountUnitService.findById(id)));
         return "amountUnit/formEditAmountUnit";
     }
+
     @PostMapping("editAmountUnit")
     public String editById(@ModelAttribute("editAmountUnit") AmountUnitDto editAmountUnitDto, Model model) {
         amountUnitService.editAmountUnit(editAmountUnitDto);
         return "redirect:/amountUnit/listAll";
     }
+
     @GetMapping("removeAmountUnit")
-    public String removeById(@RequestParam Long id, Model model){
+    public String removeById(@RequestParam Long id, Model model) {
         amountUnitService.removeAmountUnit(id);
         return "redirect:/amountUnit/listAll";
     }
